@@ -1,8 +1,8 @@
 package DungeonConquest.entites;
 
 public class Personnage extends EntiteDynamique{
-
-	private double pointsDeVie;
+	
+	private int experience;
 	
 	private Equipement casque;
 	private Equipement plastron;
@@ -14,14 +14,22 @@ public class Personnage extends EntiteDynamique{
 	
 	private Equipement arme;
 	
+	public Personnage(int force, int constitution) {
+		super(force, constitution);
+		experience = 0;
+	}
+	
 	@Override
 	public boolean estEnVie() {
 
-		if (pointsDeVie > 0)
+		if (getPointsDeVie() > 0)
 			return true;
 		
 		return false;
 	}
+	
+	
+	/*Equiper*/
 	
 	public void equiperCasque (Casque casque) {
 		this.casque = casque;
