@@ -34,5 +34,20 @@ public class Personnage extends EntiteDynamique{
 	public void equiperBottes (Bottes bottes) {
 		this.bottes = bottes;
 	}
+	
+	public void equiperGants (Gants gants) {
+		this.gants = gants;
+	}
+	
+	public void equiperCollier (Collier collier) {
+		this.collier = collier;
+	}
 
+	public void equiperBague (Bague bague) {
+		this.bague = bague;
+	}
+	
+	public void equiperArme (Arme arme) {
+		this.arme = arme;
+	}
 }
