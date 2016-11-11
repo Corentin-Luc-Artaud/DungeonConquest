@@ -1,4 +1,4 @@
-package entites;
+package DungeonConquest.entites;
 
 public class Personnage extends EntiteDynamique{
 
