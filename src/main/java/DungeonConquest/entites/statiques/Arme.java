@@ -1,4 +1,4 @@
-package DungeonConquest.entites;
+package DungeonConquest.entites.statiques;
 
 import DungeonConquest.entites.utilitaire.Materiaux;
 import DungeonConquest.entites.utilitaire.Rarete;

@@ -1,4 +1,4 @@
-package DungeonConquest.entites;
+package DungeonConquest.entites.statiques;
 
 import java.util.List;
 
@@ -7,6 +7,12 @@ import DungeonConquest.entites.utilitaire.Rarete;
 
 public class Accessoire extends Equipement {
 	
+	/**
+	 *  indice 0 : bonus attaque
+	 *  indice 1 : bonus defence
+	 *  indice 2 : bonus force
+	 *  indice 3 : bonus constitution
+	 */
 	private List<Integer> bonus;
 
 	public Accessoire(String identifiant, int niveauRequis, Materiaux materiaux, Rarete rarete, List<Integer> bonus) {

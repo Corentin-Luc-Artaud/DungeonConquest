@@ -1,7 +1,18 @@
-package DungeonConquest.entites;
+package DungeonConquest.entites.dynamiques;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import DungeonConquest.entites.statiques.Accessoire;
+import DungeonConquest.entites.statiques.Arme;
+import DungeonConquest.entites.statiques.Armure;
+import DungeonConquest.entites.statiques.Bague;
+import DungeonConquest.entites.statiques.Bottes;
+import DungeonConquest.entites.statiques.Casque;
+import DungeonConquest.entites.statiques.Collier;
+import DungeonConquest.entites.statiques.Gants;
+import DungeonConquest.entites.statiques.Plastron;
+import DungeonConquest.entites.utilitaire.ConstantesEntite;
 
 public class Personnage extends EntiteDynamique{
 	
@@ -17,6 +28,12 @@ public class Personnage extends EntiteDynamique{
 	
 	private Arme arme;
 	
+	/**
+	 *  indice 0 : bonus attaque
+	 *  indice 1 : bonus defence
+	 *  indice 2 : bonus force
+	 *  indice 3 : bonus constitution
+	 */
 	private List<Integer> bonusActifs;
 	
 	public Personnage(int force, int constitution) {
@@ -24,7 +41,7 @@ public class Personnage extends EntiteDynamique{
 		experience = 0;
 		
 		bonusActifs = new ArrayList<Integer> ();
-		for(byte i = 0; i < 4; ++i) {
+		for(byte i = 0; i < ConstantesEntite.NOMBRE_BONUS; ++i) {
 			bonusActifs.add(i, 0);
 		}
 	}
@@ -38,22 +55,42 @@ public class Personnage extends EntiteDynamique{
 		return false;
 	}
 	
+	/*Gestion Bonus*/
+	
 	private void supprimerBonus (Accessoire accessoire) {
 		for (int i = 0; i < bonusActifs.size(); ++i) {
 			bonusActifs.set(i, bonusActifs.get(i) - accessoire.getBonus().get(i));
 		}
+		setForce(getForce() - accessoire.getBonus().get(ConstantesEntite.INDICE_BONUS_FORCE));
+		setConstitution(getConstitution() - accessoire.getBonus().get(ConstantesEntite.INDICE_BONUS_CONSTITUTION));
+		setPointsDeVieMaximum(calculPointsDeVieMax());
 	}
 	
 	private void ajouterBonus (Accessoire accessoire) {
 		for (int i = 0; i < bonusActifs.size(); ++i) {
 			bonusActifs.set(i, bonusActifs.get(i) + accessoire.getBonus().get(i));
 		}
+		setForce(getForce() + accessoire.getBonus().get(ConstantesEntite.INDICE_BONUS_FORCE));
+		setConstitution(getConstitution() + accessoire.getBonus().get(ConstantesEntite.INDICE_BONUS_CONSTITUTION));
+		setPointsDeVieMaximum(calculPointsDeVieMax());
 	}
 	
 	/*Getteur*/
 	
 	public List<Integer> getBonusActifs() {
 		return bonusActifs;
+	}
+	
+	/*Calculs des statistiques*/
+	
+	@Override
+	public int pointsAttaque () {
+		return super.pointsAttaque() + bonusActifs.get(ConstantesEntite.INDICE_BONUS_ATTAQUE);
+	}
+	
+	@Override
+	public int pointsDefence () {
+		return super.pointsDefence() + bonusActifs.get(ConstantesEntite.INDICE_BONUS_DEFENCE);
 	}
 	
 	/*Equiper*/

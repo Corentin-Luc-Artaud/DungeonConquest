@@ -1,4 +1,4 @@
-package DungeonConquest.entites;
+package DungeonConquest.entites.dynamiques;
 
 public class Joueur extends Personnage {
 

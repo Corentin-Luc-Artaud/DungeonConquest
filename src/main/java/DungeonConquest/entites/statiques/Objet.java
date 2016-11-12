@@ -1,4 +1,4 @@
-package DungeonConquest.entites;
+package DungeonConquest.entites.statiques;
 
 public class Objet extends EntiteStatique {
 	
