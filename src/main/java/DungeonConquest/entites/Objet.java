@@ -7,4 +7,8 @@ public class Objet extends EntiteStatique {
 	public Objet (String identifiant) {
 		this.identifiant = identifiant;
 	}
+	
+	public String getIdentifiant () {
+		return identifiant;
+	}
 }

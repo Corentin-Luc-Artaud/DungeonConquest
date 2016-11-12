@@ -15,5 +15,17 @@ public class Equipement extends Objet{
 		this.materiaux = materiaux;
 		this.rarete = rarete;
 	}
+
+	public Materiaux getMateriaux() {
+		return materiaux;
+	}
+	
+	public Rarete getRarete () {
+		return rarete;
+	}
+	
+	public int getNiveauRequis () {
+		return niveauRequis;
+	}
 	
 }
