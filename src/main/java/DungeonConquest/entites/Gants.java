@@ -7,7 +7,11 @@ public class Gants extends Armure {
 
 	public Gants(String identifiant, int niveauRequis, Materiaux materiaux, Rarete rarete) {
 		super(identifiant, niveauRequis, materiaux, rarete);
-		// TODO Auto-generated constructor stub
+	}
+	
+	@Override
+	public int defence () {
+		return ((super.defence() * 15)/100);
 	}
 
 }
