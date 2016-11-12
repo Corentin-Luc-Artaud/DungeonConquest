@@ -9,8 +9,11 @@ public class Equipement extends Objet{
 	private Materiaux materiaux;
 	private Rarete rarete;
 	
-	public Equipement (int niveauRequis, Materiaux materiaux, Rarete rarete) {
-		
+	public Equipement (String identifiant, int niveauRequis, Materiaux materiaux, Rarete rarete) {
+		super (identifiant);
+		this.niveauRequis = niveauRequis;
+		this.materiaux = materiaux;
+		this.rarete = rarete;
 	}
 	
 }
