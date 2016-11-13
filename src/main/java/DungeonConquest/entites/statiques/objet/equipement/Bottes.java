@@ -7,8 +7,8 @@ public class Bottes extends Armure {
 
 	private int coefficientDefence;
 	
-	public Bottes(String identifiant, int niveauRequis, Materiaux materiaux, Rarete rarete, int defenceTotale, int coefficientDefence) {
-		super(identifiant, niveauRequis, materiaux, rarete, defenceTotale);
+	public Bottes(String identifiant, String nomObjet, int niveauRequis, Materiaux materiaux, Rarete rarete, int defenceTotale, int coefficientDefence) {
+		super(identifiant, nomObjet, niveauRequis, materiaux, rarete, defenceTotale);
 		this.coefficientDefence = coefficientDefence;
 	}
 

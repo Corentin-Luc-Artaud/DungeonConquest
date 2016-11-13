@@ -7,8 +7,8 @@ public class Armure extends Equipement {
 	
 	private int defenceTotale;
 	
-	public Armure(String identifiant, int niveauRequis, Materiaux materiaux, Rarete rarete, int defenceTotale) {
-		super(identifiant, niveauRequis, materiaux, rarete);
+	public Armure(String identifiant, String nomObjet, int niveauRequis, Materiaux materiaux, Rarete rarete, int defenceTotale) {
+		super(identifiant, nomObjet, niveauRequis, materiaux, rarete);
 		this.defenceTotale = defenceTotale;
 	}
 	/*

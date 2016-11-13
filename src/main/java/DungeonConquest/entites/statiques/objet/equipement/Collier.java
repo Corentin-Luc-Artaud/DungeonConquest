@@ -7,8 +7,8 @@ import DungeonConquest.entites.utilitaire.Rarete;
 
 public class Collier extends Accessoire {
 
-	public Collier(String identifiant, int niveauRequis, Materiaux materiaux, Rarete rarete, List<Integer> bonus) {
-		super(identifiant, niveauRequis, materiaux, rarete, bonus);
+	public Collier(String identifiant, String nomObjet, int niveauRequis, Materiaux materiaux, Rarete rarete, List<Integer> bonus) {
+		super(identifiant, nomObjet, niveauRequis, materiaux, rarete, bonus);
 	}
 
 }

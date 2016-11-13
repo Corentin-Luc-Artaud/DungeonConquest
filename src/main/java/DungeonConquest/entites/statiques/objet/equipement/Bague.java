@@ -7,8 +7,8 @@ import DungeonConquest.entites.utilitaire.Rarete;
 
 public class Bague extends Accessoire {
 
-	public Bague(String identifiant, int niveauRequis, Materiaux materiaux, Rarete rarete, List<Integer> bonus) {
-		super(identifiant, niveauRequis, materiaux, rarete, bonus);
+	public Bague(String identifiant, String nomObjet, int niveauRequis, Materiaux materiaux, Rarete rarete, List<Integer> bonus) {
+		super(identifiant, nomObjet, niveauRequis, materiaux, rarete, bonus);
 	}
 
 }

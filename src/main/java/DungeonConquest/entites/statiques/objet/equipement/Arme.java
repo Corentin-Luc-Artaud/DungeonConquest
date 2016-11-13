@@ -8,8 +8,8 @@ public class Arme extends Equipement{
 	
 	private TypeArme typeArme;
 
-	public Arme(String identifiant, int niveauRequis, Materiaux materiaux, Rarete rarete, TypeArme typeArme) {
-		super(identifiant, niveauRequis, materiaux, rarete);
+	public Arme(String identifiant, String nomObjet, int niveauRequis, Materiaux materiaux, Rarete rarete, TypeArme typeArme) {
+		super(identifiant, nomObjet, niveauRequis, materiaux, rarete);
 		this.typeArme = typeArme;
 	}
 	

@@ -4,7 +4,14 @@ import DungeonConquest.entites.statiques.EntiteStatique;
 
 public class Objet extends EntiteStatique {
 	
-	public Objet (String identifiant) {
+	private String nomObjet;
+	
+	public Objet (String identifiant, String nomObjet) {
 		super(identifiant);
+		this.nomObjet = nomObjet;
+	}
+	
+	public String getNomObjet () {
+		return nomObjet;
 	}
 }

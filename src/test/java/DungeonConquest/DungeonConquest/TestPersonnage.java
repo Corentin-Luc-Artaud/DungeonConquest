@@ -60,7 +60,7 @@ public class TestPersonnage extends TestCase {
 		bonus.set(ConstantesEntite.INDICE_BONUS_FORCE, 4);
 		bonus.set(ConstantesEntite.INDICE_BONUS_CONSTITUTION, 2);
 		
-		Bague bague = new Bague ("b1", 1, new Materiaux("OR", 4), new Rarete ("RARE", 2), bonus);
+		Bague bague = new Bague ("b1", "Bague", 1, new Materiaux("OR", 4), new Rarete ("RARE", 2), bonus);
 		personnage.equiperBague(bague);
 		
 		assertEquals(bonus, personnage.getBonusActifs());
@@ -87,10 +87,10 @@ public class TestPersonnage extends TestCase {
 	
 	public void TestAjouterSupprimerArmure () {
 		Personnage personnage = new Personnage ("001", 1, 12, 14);
-		Casque casque = new Casque ("a1", 1, new Materiaux("DIAMANT", 5), new Rarete("DIVIN", 5), 1000, 20);
-		Plastron plastron = new Plastron ("a1", 2, new Materiaux("DIAMANT", 5), new Rarete("DIVIN", 5), 1000, 50);
-		Bottes bottes = new Bottes ("a1", 1, new Materiaux("DIAMANT", 5), new Rarete("DIVIN", 5), 1000, 15);
-		Gants gants = new Gants ("a1", 1, new Materiaux("DIAMANT", 5), new Rarete("DIVIN", 5), 1000, 15);
+		Casque casque = new Casque ("a1", "Casque", 1, new Materiaux("DIAMANT", 5), new Rarete("DIVIN", 5), 1000, 20);
+		Plastron plastron = new Plastron ("a1", "Plastron", 2, new Materiaux("DIAMANT", 5), new Rarete("DIVIN", 5), 1000, 50);
+		Bottes bottes = new Bottes ("a1", "Bottes", 1, new Materiaux("DIAMANT", 5), new Rarete("DIVIN", 5), 1000, 15);
+		Gants gants = new Gants ("a1", "Gants", 1, new Materiaux("DIAMANT", 5), new Rarete("DIVIN", 5), 1000, 15);
 		
 		assertEquals(500, personnage.pointsDefence());
 		

@@ -15,8 +15,8 @@ public class Accessoire extends Equipement {
 	 */
 	private List<Integer> bonus;
 
-	public Accessoire(String identifiant, int niveauRequis, Materiaux materiaux, Rarete rarete, List<Integer> bonus) {
-		super(identifiant, niveauRequis, materiaux, rarete);
+	public Accessoire(String identifiant, String nomObjet, int niveauRequis, Materiaux materiaux, Rarete rarete, List<Integer> bonus) {
+		super(identifiant, nomObjet, niveauRequis, materiaux, rarete);
 		this.bonus = bonus;
 	}
 	
