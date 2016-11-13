@@ -12,13 +12,17 @@ public abstract class EntiteDynamique extends Entite{
 	private int niveau;
 	
 	private int force;
+	private int dexterite;
 	private int constitution;
+	private int intelligence;
 	
-	public EntiteDynamique(String identifient, Coordonnee coordonnees, int niveau, int force, int constitution) {
+	public EntiteDynamique(String identifient, Coordonnee coordonnees, int niveau, int force, int dexterite, int constitution, int intelligence) {
 		super(identifient);
 		this.coordonnees = coordonnees;
 		this.force = force;
+		this.dexterite = dexterite;
 		this.constitution = constitution;
+		this.intelligence = intelligence;
 		this.niveau = niveau;
 		pointsDeVie = pointsDeVieMax();
 	}
@@ -34,16 +38,36 @@ public abstract class EntiteDynamique extends Entite{
 		return (force/2)-5;
 	}
 	
+	public int bonusDexterite () {
+		return (dexterite/2)-5;
+	}
+	
 	public int bonusConstitution () {
 		return (constitution/2)-5;
+	}
+	
+	public int bonusIntelligence () {
+		return (intelligence/2)-5;
 	}
 	
 	public int pointsAttaque () {
 		return 300*niveau + 100*bonusForce();
 	}
 	
+	public int pointsAttaqueDistance () {
+		return 300*niveau + 100*bonusDexterite();
+	}
+	
+	public int pointsAttaqueMagique () {
+		return 300*niveau + 100*bonusIntelligence();
+	}
+	
 	public int pointsDefence () {
 		return 300*niveau + 100*bonusConstitution();
+	}
+	
+	public float tauxDeCritique () {
+		return (float)(5 + niveau + bonusDexterite())/100;
 	}
 	
 	/*Getteurs*/
@@ -60,8 +84,16 @@ public abstract class EntiteDynamique extends Entite{
 		return force;
 	}
 	
+	public int getDexterite () {
+		return dexterite;
+	}
+	
 	public int getConstitution () {
 		return constitution;
+	}
+	
+	public int getIntelligence () {
+		return intelligence;
 	}
 	
 	public Coordonnee getCoordonnees () {
@@ -78,8 +110,16 @@ public abstract class EntiteDynamique extends Entite{
 		this.force = force;
 	}
 	
+	protected void setDexterite(int dexterite) {
+		this.dexterite = dexterite;
+	}
+	
 	protected void setConstitution(int constitution) {
 		this.constitution = constitution;
+	}
+	
+	protected void setIntelligence(int intelligence) {
+		this.intelligence = intelligence;
 	}
 	
 	protected void setNiveau(int niveau) {

@@ -6,8 +6,8 @@ public class Joueur extends Personnage {
 
 	private int experience;
 	
-	public Joueur(String identifient, String nomPersonnage, Coordonnee coordonnees, int niveau, int force, int constitution, int experience) {
-		super(identifient, nomPersonnage, coordonnees, niveau, force, constitution);
+	public Joueur(String identifient, String nomPersonnage, Coordonnee coordonnees, int niveau, int force, int dexterite, int constitution, int intelligence, int experience) {
+		super(identifient, nomPersonnage, coordonnees, niveau, force, dexterite, constitution, intelligence);
 		
 		this.experience = experience;
 	}

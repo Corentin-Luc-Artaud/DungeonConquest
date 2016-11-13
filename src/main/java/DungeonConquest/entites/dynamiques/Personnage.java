@@ -33,12 +33,14 @@ public class Personnage extends EntiteDynamique{
 	 *  indice 0 : bonus attaque
 	 *  indice 1 : bonus defence
 	 *  indice 2 : bonus force
-	 *  indice 3 : bonus constitution
+	 *  indice 3 : bonus dexterite
+	 *  indice 4 : bonus constitution
+	 *  indice 5 : bonus intelligence
 	 */
 	private List<Integer> bonusActifs;
 	
-	public Personnage(String identifient, String nomPersonnage, Coordonnee coordonnees, int niveau, int force, int constitution) {
-		super(identifient, coordonnees, niveau, force, constitution);
+	public Personnage(String identifient, String nomPersonnage, Coordonnee coordonnees, int niveau, int force, int dexterite, int constitution, int intelligence) {
+		super(identifient, coordonnees, niveau, force, dexterite, constitution, intelligence);
 		
 		this.nomPersonnage = nomPersonnage;
 		
@@ -64,7 +66,9 @@ public class Personnage extends EntiteDynamique{
 			bonusActifs.set(i, bonusActifs.get(i) - accessoire.getBonus().get(i));
 		}
 		setForce(getForce() - accessoire.getBonus().get(ConstantesEntite.INDICE_BONUS_FORCE));
+		setDexterite(getDexterite() - accessoire.getBonus().get(ConstantesEntite.INDICE_BONUS_DEXTERITE));
 		setConstitution(getConstitution() - accessoire.getBonus().get(ConstantesEntite.INDICE_BONUS_CONSTITUTION));
+		setIntelligence(getIntelligence() - accessoire.getBonus().get(ConstantesEntite.INDICE_BONUS_INTELLIGENCE));
 	}
 	
 	private void ajouterBonus (Accessoire accessoire) {
@@ -72,7 +76,9 @@ public class Personnage extends EntiteDynamique{
 			bonusActifs.set(i, bonusActifs.get(i) + accessoire.getBonus().get(i));
 		}
 		setForce(getForce() + accessoire.getBonus().get(ConstantesEntite.INDICE_BONUS_FORCE));
+		setDexterite(getDexterite() + accessoire.getBonus().get(ConstantesEntite.INDICE_BONUS_DEXTERITE));
 		setConstitution(getConstitution() + accessoire.getBonus().get(ConstantesEntite.INDICE_BONUS_CONSTITUTION));
+		setIntelligence(getIntelligence() + accessoire.getBonus().get(ConstantesEntite.INDICE_BONUS_INTELLIGENCE));
 	}
 	
 	/*Getteur*/
@@ -94,6 +100,16 @@ public class Personnage extends EntiteDynamique{
 	@Override
 	public int pointsAttaque () {
 		return super.pointsAttaque() + bonusActifs.get(ConstantesEntite.INDICE_BONUS_ATTAQUE);
+	}
+	
+	@Override
+	public int pointsAttaqueDistance () {
+		return super.pointsAttaqueDistance() + bonusActifs.get(ConstantesEntite.INDICE_BONUS_ATTAQUE_DISTANCE);
+	}
+	
+	@Override
+	public int pointsAttaqueMagique () {
+		return super.pointsAttaqueMagique() + bonusActifs.get(ConstantesEntite.INDICE_BONUS_ATTAQUE_MAGIQUE);
 	}
 	
 	@Override
