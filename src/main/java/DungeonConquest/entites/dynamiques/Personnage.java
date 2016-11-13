@@ -3,15 +3,15 @@ package DungeonConquest.entites.dynamiques;
 import java.util.ArrayList;
 import java.util.List;
 
-import DungeonConquest.entites.statiques.Accessoire;
-import DungeonConquest.entites.statiques.Arme;
-import DungeonConquest.entites.statiques.Armure;
-import DungeonConquest.entites.statiques.Bague;
-import DungeonConquest.entites.statiques.Bottes;
-import DungeonConquest.entites.statiques.Casque;
-import DungeonConquest.entites.statiques.Collier;
-import DungeonConquest.entites.statiques.Gants;
-import DungeonConquest.entites.statiques.Plastron;
+import DungeonConquest.entites.statiques.objet.equipement.Accessoire;
+import DungeonConquest.entites.statiques.objet.equipement.Arme;
+import DungeonConquest.entites.statiques.objet.equipement.Armure;
+import DungeonConquest.entites.statiques.objet.equipement.Bague;
+import DungeonConquest.entites.statiques.objet.equipement.Bottes;
+import DungeonConquest.entites.statiques.objet.equipement.Casque;
+import DungeonConquest.entites.statiques.objet.equipement.Collier;
+import DungeonConquest.entites.statiques.objet.equipement.Gants;
+import DungeonConquest.entites.statiques.objet.equipement.Plastron;
 import DungeonConquest.entites.utilitaire.ConstantesEntite;
 
 public class Personnage extends EntiteDynamique{

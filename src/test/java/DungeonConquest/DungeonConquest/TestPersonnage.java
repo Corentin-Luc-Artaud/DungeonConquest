@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import DungeonConquest.entites.dynamiques.Personnage;
-import DungeonConquest.entites.statiques.Bague;
-import DungeonConquest.entites.statiques.Bottes;
-import DungeonConquest.entites.statiques.Casque;
-import DungeonConquest.entites.statiques.Gants;
-import DungeonConquest.entites.statiques.Plastron;
+import DungeonConquest.entites.statiques.objet.equipement.Bague;
+import DungeonConquest.entites.statiques.objet.equipement.Bottes;
+import DungeonConquest.entites.statiques.objet.equipement.Casque;
+import DungeonConquest.entites.statiques.objet.equipement.Gants;
+import DungeonConquest.entites.statiques.objet.equipement.Plastron;
 import DungeonConquest.entites.utilitaire.ConstantesEntite;
 import DungeonConquest.entites.utilitaire.Materiaux;
 import DungeonConquest.entites.utilitaire.Rarete;

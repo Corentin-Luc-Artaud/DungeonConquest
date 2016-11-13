@@ -1,4 +1,4 @@
-package DungeonConquest.entites.statiques;
+package DungeonConquest.entites.statiques.objet.equipement;
 
 import java.util.List;
 

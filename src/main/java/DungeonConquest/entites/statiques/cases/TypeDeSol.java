@@ -1,4 +1,6 @@
-package DungeonConquest.entites.statiques;
+package DungeonConquest.entites.statiques.cases;
+
+import DungeonConquest.entites.statiques.EntiteStatique;
 
 public class TypeDeSol extends EntiteStatique {
 

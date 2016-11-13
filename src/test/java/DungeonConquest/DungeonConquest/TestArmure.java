@@ -1,9 +1,9 @@
 package DungeonConquest.DungeonConquest;
 
-import DungeonConquest.entites.statiques.Bottes;
-import DungeonConquest.entites.statiques.Casque;
-import DungeonConquest.entites.statiques.Gants;
-import DungeonConquest.entites.statiques.Plastron;
+import DungeonConquest.entites.statiques.objet.equipement.Bottes;
+import DungeonConquest.entites.statiques.objet.equipement.Casque;
+import DungeonConquest.entites.statiques.objet.equipement.Gants;
+import DungeonConquest.entites.statiques.objet.equipement.Plastron;
 import DungeonConquest.entites.utilitaire.Materiaux;
 import DungeonConquest.entites.utilitaire.Rarete;
 import junit.framework.TestCase;
