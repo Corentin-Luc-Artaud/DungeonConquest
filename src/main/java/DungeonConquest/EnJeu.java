@@ -1,5 +1,5 @@
 package DungeonConquest;
 
-public class EnJeu extends DungeonConquest {
+public class EnJeu extends DungeonConquestLauncher {
 
 }

@@ -2,7 +2,7 @@ package Test;
 
 import javax.swing.JFrame;
 
-import DungeonConquest.DungeonConquest;
+import DungeonConquest.DungeonConquestLauncher;
 
 /**
  * Hello world!
@@ -13,7 +13,8 @@ public class test extends JFrame {
 	
     public static void main( String[] args )
     {
-        new DungeonConquest();
+        new DungeonConquestLauncher();
+        
     }
 }
 

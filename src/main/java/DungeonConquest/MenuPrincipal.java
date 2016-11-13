@@ -11,23 +11,22 @@ import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import Test.test;
 
 /**
  * @author nalfein
  *
  */
+@SuppressWarnings("serial")
 public class MenuPrincipal extends PanelFond {
-	private DungeonConquest frame;
+	private DungeonConquestLauncher frame;
 	private static ImageIcon icon = new ImageIcon("/home/nalfein/Bureau/wallhaven-413497.jpg");
 
 	/**
 	 * Constructeur de la classe
 	 */
-	public MenuPrincipal(DungeonConquest frame) {
+	public MenuPrincipal(DungeonConquestLauncher frame) {
 		super(icon);
 		this.frame = frame;
 		add(panneau());
@@ -70,10 +69,6 @@ public class MenuPrincipal extends PanelFond {
 			}
 		});
 		return bouton;
-	}
-
-	public void resizeMenu(int width, int height) {
-		resizeFond(width, height);
 	}
 
 }

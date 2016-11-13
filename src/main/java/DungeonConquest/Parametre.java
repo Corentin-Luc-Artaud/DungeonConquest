@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -17,10 +18,12 @@ import javax.swing.JPanel;
  * @author nalfein
  * @brief classe correspondant à la fenetre d'options pour gérer les touches
  */
-public class Parametre extends JPanel{
-	private DungeonConquest frame;
-	public Parametre(DungeonConquest frame){
-		super();
+@SuppressWarnings("serial")
+public class Parametre extends PanelFond{
+	private static ImageIcon icon = new ImageIcon("/home/nalfein/Bureau/wallhaven-85538.jpg");
+	private DungeonConquestLauncher frame;
+	public Parametre(DungeonConquestLauncher frame){
+		super(icon );
 		this.frame = frame;
 		JPanel panel = new JPanel();
 		add(panel);
