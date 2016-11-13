@@ -24,14 +24,13 @@ import javax.swing.JTextField;
 public class NouvellePartie extends PanelFond{ 
 	private static ImageIcon icon = new ImageIcon("");
 	private DungeonConquestLauncher frame;
-	private static int force = 18;
-	//private static int dext  = 18;
-	private static int cons  = 18;
-	//private static int intel = 18;
+	private JTextField fieldNom = new JTextField(20);
+	private static int force = 3;
+	private static int dext  = 3;
+	private static int cons  = 3;
+	private static int intel = 3;
 	//private static int sag   = 18;
 	//private static int cha   = 18;
-	@SuppressWarnings("unused")
-	private static int ptsStats = 0;
 
 	public NouvellePartie(DungeonConquestLauncher frame) {
 		super(icon);
@@ -69,14 +68,34 @@ public class NouvellePartie extends PanelFond{
 	private JPanel panelCentreNordEst() {
 		JPanel panel = new JPanel();
 		JPanel panel2 = new JPanel();
-		panel2.setLayout(new GridLayout(3, 2));
+		panel2.setLayout(new GridLayout(3, 1));
 		panel2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-		panel2.add(new JLabel("Sexe : "));
-		panel2.add(new JRadioButton("Homme"));
-		panel2.add(new JLabel("Race : "));
-		panel2.add(new JLabel("Humain"));
-		panel2.add(new JLabel("Classe : "));
-		panel2.add(new JLabel("Guerrier"));
+		
+		final JRadioButton[] boutSexe = {new JRadioButton("Homme"), new JRadioButton("Femme")};
+		for (JRadioButton bout : boutSexe){
+		bout.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				if (e.getActionCommand()=="Homme"){
+					boutSexe[1].setSelected(false);
+					boutSexe[0].setSelected(true);
+				} else {
+					boutSexe[1].setSelected(true);
+					boutSexe[0].setSelected(false);
+				}
+				
+			}
+		});
+		}
+		JPanel panSexe = new JPanel();
+		
+		JLabel labSexe = new JLabel("Sexe : ");
+		labSexe.setOpaque(true);
+		panSexe.add(labSexe);
+		panSexe.add(boutSexe[0]);
+		panSexe.add(boutSexe[1]);
+		
+		panel2.add(panSexe);
 		panel2.setOpaque(false);
 		panel.add(panel2);
 		return panel;
@@ -106,11 +125,11 @@ public class NouvellePartie extends PanelFond{
 	
 	private JPanel panelCentreSudOuestNord () {
 		JPanel panel = new JPanel();
-		JLabel[] caract = {new JLabel("FOR"), /*new JLabel("DEX"),*/ new JLabel("CON"),/* new JLabel("INT"), new JLabel("SAG"), new JLabel("CHA")*/};
+		JLabel[] caract = {new JLabel("FOR"), new JLabel("DEX"), new JLabel("CON"), new JLabel("INT"),/* new JLabel("SAG"), new JLabel("CHA")*/};
 		JLabel[] valueCaract = {new JLabel("   " + String.valueOf(force)),
-								//new JLabel("   " + String.valueOf(dext)),
+								new JLabel("   " + String.valueOf(dext)),
 								new JLabel("   " + String.valueOf(cons)),
-								//new JLabel("   " + String.valueOf(intel)),
+								new JLabel("   " + String.valueOf(intel)),
 								//new JLabel("   " + String.valueOf(sag)),
 								//new JLabel("   " + String.valueOf(cha))
 								};
@@ -146,7 +165,9 @@ public class NouvellePartie extends PanelFond{
 			public void actionPerformed(ActionEvent e) {
 				if (e.getActionCommand()=="Tirer"){
 					force = trirageStats();
+					dext = trirageStats();
 					cons = trirageStats();
+					intel = trirageStats();
 					//cha = trirageStats();
 					panel.removeAll();
 					panel.add(panelCentreSudOuestNord());
@@ -184,6 +205,9 @@ public class NouvellePartie extends PanelFond{
 			public void actionPerformed(ActionEvent e) {
 				if (e.getActionCommand()=="Retour"){
 					frame.changeToMenu();
+				} else if (e.getActionCommand()=="Jouer"){
+					//Constructeur en Attente donc inutile a l'heure actuel
+					//new Personnage("PJ001", fieldNom.getText(), new Coordonnee(), 1, force, dext, cons, intel, 0);
 				}
 				
 			}
@@ -205,7 +229,7 @@ public class NouvellePartie extends PanelFond{
 		JPanel panel = new JPanel();
 		panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		panel.add(new JLabel("Nom : "));
-		panel.add(new JTextField(20));
+		panel.add(fieldNom);
 		return panel;
 	}
 	
