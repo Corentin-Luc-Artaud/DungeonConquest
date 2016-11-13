@@ -5,13 +5,16 @@ import DungeonConquest.entites.utilitaire.Rarete;
 
 public class Plastron extends Armure {
 
-	public Plastron(String identifiant, int niveauRequis, Materiaux materiaux, Rarete rarete) {
-		super(identifiant, niveauRequis, materiaux, rarete);
+	private int coefficientDefence;
+	
+	public Plastron(String identifiant, int niveauRequis, Materiaux materiaux, Rarete rarete, int defenceTotale, int coefficientDefence) {
+		super(identifiant, niveauRequis, materiaux, rarete, defenceTotale);
+		this.coefficientDefence = coefficientDefence;
 	}
 	
 	@Override
-	public int defence () {
-		return ((super.defence() * 50)/100);
+	public int defence() {
+		return ((super.defence() * coefficientDefence)/100);
 	}
 
 }

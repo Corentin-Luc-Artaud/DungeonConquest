@@ -87,10 +87,10 @@ public class TestPersonnage extends TestCase {
 	
 	public void TestAjouterSupprimerArmure () {
 		Personnage personnage = new Personnage ("001", 1, 12, 14);
-		Casque casque = new Casque ("a1", 1, new Materiaux("DIAMANT", 5), new Rarete("DIVIN", 5));
-		Plastron plastron = new Plastron ("a1", 2, new Materiaux("DIAMANT", 5), new Rarete("DIVIN", 5));
-		Bottes bottes = new Bottes ("a1", 1, new Materiaux("DIAMANT", 5), new Rarete("DIVIN", 5));
-		Gants gants = new Gants ("a1", 1, new Materiaux("DIAMANT", 5), new Rarete("DIVIN", 5));
+		Casque casque = new Casque ("a1", 1, new Materiaux("DIAMANT", 5), new Rarete("DIVIN", 5), 1000, 20);
+		Plastron plastron = new Plastron ("a1", 2, new Materiaux("DIAMANT", 5), new Rarete("DIVIN", 5), 1000, 50);
+		Bottes bottes = new Bottes ("a1", 1, new Materiaux("DIAMANT", 5), new Rarete("DIVIN", 5), 1000, 15);
+		Gants gants = new Gants ("a1", 1, new Materiaux("DIAMANT", 5), new Rarete("DIVIN", 5), 1000, 15);
 		
 		assertEquals(500, personnage.pointsDefence());
 		
@@ -99,7 +99,7 @@ public class TestPersonnage extends TestCase {
 		personnage.equiperBottes(bottes);
 		personnage.equiperGants(gants);
 		
-		assertEquals(1755, personnage.pointsDefence());
+		assertEquals(1500, personnage.pointsDefence());
 		
 		personnage.equiperCasque(null);
 		personnage.equiperPlastron(null);
