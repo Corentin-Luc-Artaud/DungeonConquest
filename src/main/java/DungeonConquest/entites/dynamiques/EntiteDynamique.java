@@ -4,7 +4,6 @@ import DungeonConquest.entites.Entite;
 
 public abstract class EntiteDynamique extends Entite{
 
-	private int pointsDeVieMaximum;
 	private int pointsDeVie;
 	
 	private int niveau;
@@ -12,19 +11,18 @@ public abstract class EntiteDynamique extends Entite{
 	private int force;
 	private int constitution;
 	
-	public EntiteDynamique(String identifient, int force, int constitution) {
+	public EntiteDynamique(String identifient, int niveau, int force, int constitution) {
 		super(identifient);
 		this.force = force;
 		this.constitution = constitution;
-		niveau = 1;
-		pointsDeVieMaximum = calculPointsDeVieMax();
-		pointsDeVie = pointsDeVieMaximum;
+		this.niveau = niveau;
+		pointsDeVie = pointsDeVieMax();
 	}
 	
 	
 	/*Calculs des statistiques*/
 	
-	public int calculPointsDeVieMax () {
+	public int pointsDeVieMax () {
 		return 500*niveau + 100*bonusConstitution();
 	}
 
@@ -50,10 +48,6 @@ public abstract class EntiteDynamique extends Entite{
 		return pointsDeVie;
 	}
 	
-	public int getPointsDeVieMax () {
-		return pointsDeVieMaximum;
-	}
-	
 	public int getNiveau () {
 		return niveau;
 	}
@@ -68,6 +62,10 @@ public abstract class EntiteDynamique extends Entite{
 	
 	/*Setteurs*/
 	
+	protected void setPointsDeVie (int pointsDeVie) {
+		this.pointsDeVie = pointsDeVie;
+	}
+	
 	protected void setForce(int force) {
 		this.force = force;
 	}
@@ -76,8 +74,8 @@ public abstract class EntiteDynamique extends Entite{
 		this.constitution = constitution;
 	}
 	
-	protected void setPointsDeVieMaximum(int pointsDeVieMaximum) {
-		this.pointsDeVieMaximum = pointsDeVieMaximum;
+	protected void setNiveau(int niveau) {
+		this.niveau = niveau;
 	}
 	
 	/*Fonction Abstraite*/

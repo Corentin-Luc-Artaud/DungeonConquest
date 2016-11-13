@@ -16,8 +16,6 @@ import DungeonConquest.entites.utilitaire.ConstantesEntite;
 
 public class Personnage extends EntiteDynamique{
 	
-	private int experience;
-	
 	private Armure casque;
 	private Armure plastron;
 	private Armure bottes;
@@ -36,9 +34,8 @@ public class Personnage extends EntiteDynamique{
 	 */
 	private List<Integer> bonusActifs;
 	
-	public Personnage(String identifient, int force, int constitution) {
-		super(identifient, force, constitution);
-		experience = 0;
+	public Personnage(String identifient, int niveau, int force, int constitution) {
+		super(identifient, niveau, force, constitution);
 		
 		bonusActifs = new ArrayList<Integer> ();
 		for(byte i = 0; i < ConstantesEntite.NOMBRE_BONUS; ++i) {
@@ -63,7 +60,6 @@ public class Personnage extends EntiteDynamique{
 		}
 		setForce(getForce() - accessoire.getBonus().get(ConstantesEntite.INDICE_BONUS_FORCE));
 		setConstitution(getConstitution() - accessoire.getBonus().get(ConstantesEntite.INDICE_BONUS_CONSTITUTION));
-		setPointsDeVieMaximum(calculPointsDeVieMax());
 	}
 	
 	private void ajouterBonus (Accessoire accessoire) {
@@ -72,7 +68,6 @@ public class Personnage extends EntiteDynamique{
 		}
 		setForce(getForce() + accessoire.getBonus().get(ConstantesEntite.INDICE_BONUS_FORCE));
 		setConstitution(getConstitution() + accessoire.getBonus().get(ConstantesEntite.INDICE_BONUS_CONSTITUTION));
-		setPointsDeVieMaximum(calculPointsDeVieMax());
 	}
 	
 	/*Getteur*/

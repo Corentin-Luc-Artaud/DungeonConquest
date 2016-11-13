@@ -18,32 +18,32 @@ import DungeonConquest.entites.utilitaire.Rarete;
 public class TestPersonnage extends TestCase {
 	
 	public void testBonusForce() {
-		Personnage personnage = new Personnage ("001", 12, 14);
+		Personnage personnage = new Personnage ("001", 1, 12, 14);
 		assertEquals(1, personnage.bonusForce());
 	}
 	
 	public void testBonusConstitution() {
-		Personnage personnage = new Personnage ("001", 12, 14);
+		Personnage personnage = new Personnage ("001", 1, 12, 14);
 		assertEquals(2, personnage.bonusConstitution());
 	}
 	
 	public void testPointsAttaque() {
-		Personnage personnage = new Personnage ("001", 12, 14);
+		Personnage personnage = new Personnage ("001", 1, 12, 14);
 		assertEquals(400, personnage.pointsAttaque());
 	}
 	
 	public void testPointsDefence() {
-		Personnage personnage = new Personnage ("001", 12, 14);
+		Personnage personnage = new Personnage ("001", 1, 12, 14);
 		assertEquals(500, personnage.pointsDefence());
 	}
 	
 	public void testCalculPointsDeVie() {
-		Personnage personnage = new Personnage ("001", 12, 14);
+		Personnage personnage = new Personnage ("001", 1, 12, 14);
 		assertEquals(700, personnage.getPointsDeVie());
 	}
 	
 	public void testAjouterSupprimerBague() {
-		Personnage personnage = new Personnage ("001", 12, 14);
+		Personnage personnage = new Personnage ("001", 1, 12, 14);
 		List<Integer> bonus = new ArrayList<Integer>();
 		for (byte i = 0; i < 4; ++i) {
 			bonus.add(i, 0);
@@ -51,7 +51,7 @@ public class TestPersonnage extends TestCase {
 		
 		assertEquals(400, personnage.pointsAttaque());
 		assertEquals(500, personnage.pointsDefence());
-		assertEquals(700, personnage.getPointsDeVieMax());
+		assertEquals(700, personnage.pointsDeVieMax());
 		assertEquals(12, personnage.getForce());
 		assertEquals(14, personnage.getConstitution());
 		
@@ -66,7 +66,7 @@ public class TestPersonnage extends TestCase {
 		assertEquals(bonus, personnage.getBonusActifs());
 		assertEquals(800, personnage.pointsAttaque());
 		assertEquals(800, personnage.pointsDefence());
-		assertEquals(800, personnage.getPointsDeVieMax());
+		assertEquals(800, personnage.pointsDeVieMax());
 		assertEquals(16, personnage.getForce());
 		assertEquals(16, personnage.getConstitution());
 		
@@ -80,13 +80,13 @@ public class TestPersonnage extends TestCase {
 		assertEquals(bonus, personnage.getBonusActifs());
 		assertEquals(400, personnage.pointsAttaque());
 		assertEquals(500, personnage.pointsDefence());
-		assertEquals(700, personnage.getPointsDeVieMax());
+		assertEquals(700, personnage.pointsDeVieMax());
 		assertEquals(12, personnage.getForce());
 		assertEquals(14, personnage.getConstitution());
 	}
 	
 	public void TestAjouterSupprimerArmure () {
-		Personnage personnage = new Personnage ("001", 12, 14);
+		Personnage personnage = new Personnage ("001", 1, 12, 14);
 		Casque casque = new Casque ("a1", 1, new Materiaux("DIAMANT", 5), new Rarete("DIVIN", 5));
 		Plastron plastron = new Plastron ("a1", 2, new Materiaux("DIAMANT", 5), new Rarete("DIVIN", 5));
 		Bottes bottes = new Bottes ("a1", 1, new Materiaux("DIAMANT", 5), new Rarete("DIVIN", 5));
