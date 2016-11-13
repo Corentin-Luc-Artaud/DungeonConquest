@@ -11,45 +11,42 @@ import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import Test.test;
 
 /**
  * @author nalfein
  *
  */
 public class MenuPrincipal extends PanelFond {
-	private String NEW = "Nouvelle Partie";
-	private String LOAD = "Charger Partie";
-	private String OPTIONS = "Options";
-	private String QUIT = "Quitter";
-	private JPanel panneau = new JPanel();
+	private DungeonConquest frame;
 	private static ImageIcon icon = new ImageIcon("/home/nalfein/Bureau/wallhaven-413497.jpg");
-	
+
 	/**
-	 * @param imgIco
+	 * Constructeur de la classe
 	 */
-	public MenuPrincipal() {
+	public MenuPrincipal(DungeonConquest frame) {
 		super(icon);
-		panneau();
-		add(panneau);
+		this.frame = frame;
+		add(panneau());
 	}
 	
-	public void resizeMenu(){
-		resizeFond(getWidth(), getHeight());
-	}
-	
-	private void panneau(){
+	private JPanel panneau(){
+		JPanel panneau = new JPanel();
 		panneau.setLayout(new GridLayout(7, 1));
-		creerbouton(NEW);
+		panneau.add(creerbouton("Nouvelle Partie"));
 		panneau.add(panelEspace());
-		creerbouton("Charger Partie");
+		panneau.add(creerbouton("Charger Partie"));
 		panneau.add(panelEspace());
-		creerbouton(OPTIONS);
+		panneau.add(creerbouton("Options"));
 		panneau.add(panelEspace());
-		creerbouton(QUIT);
+		panneau.add(creerbouton("Quitter"));
 		panneau.setOpaque(false);
 		panneau.setMinimumSize(new Dimension(300, 200));
 		panneau.setBorder(BorderFactory.createEmptyBorder(150, 200, 150, 200));
+		return panneau;
 	}
 	
 	private JPanel panelEspace(){
@@ -58,18 +55,25 @@ public class MenuPrincipal extends PanelFond {
 		return jpanel;
 	}
 	
-	private void creerbouton(String nom){
+	private JButton creerbouton(String nom){
 		JButton bouton = new JButton(nom);
 		bouton.addActionListener(new ActionListener() {
-			
 			public void actionPerformed(ActionEvent e) {
 				if (e.getActionCommand()=="Quitter"){
 					System.exit(0);
-				} else if (e.getActionCommand()=="Options");
+				} else if (e.getActionCommand()=="Options"){
+					frame.changeToOption();
+				} else if (e.getActionCommand()=="Nouvelle Partie"){
+					frame.changeToNouvPartie();
+				}
 				
 			}
 		});
-		panneau.add(bouton);
+		return bouton;
+	}
+
+	public void resizeMenu(int width, int height) {
+		resizeFond(width, height);
 	}
 
 }
