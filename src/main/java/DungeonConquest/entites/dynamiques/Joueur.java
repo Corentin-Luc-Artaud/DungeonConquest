@@ -2,8 +2,8 @@ package DungeonConquest.entites.dynamiques;
 
 public class Joueur extends Personnage {
 
-	public Joueur(int force, int constitution) {
-		super(force, constitution);
+	public Joueur(String identifient, int force, int constitution) {
+		super(identifient, force, constitution);
 		// TODO Auto-generated constructor stub
 	}
 

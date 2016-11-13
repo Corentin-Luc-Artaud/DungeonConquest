@@ -36,8 +36,8 @@ public class Personnage extends EntiteDynamique{
 	 */
 	private List<Integer> bonusActifs;
 	
-	public Personnage(int force, int constitution) {
-		super(force, constitution);
+	public Personnage(String identifient, int force, int constitution) {
+		super(identifient, force, constitution);
 		experience = 0;
 		
 		bonusActifs = new ArrayList<Integer> ();
@@ -81,6 +81,10 @@ public class Personnage extends EntiteDynamique{
 		return bonusActifs;
 	}
 	
+	public Arme getArme() {
+		return arme;
+	}
+	
 	/*Calculs des statistiques*/
 	
 	@Override
@@ -90,48 +94,66 @@ public class Personnage extends EntiteDynamique{
 	
 	@Override
 	public int pointsDefence () {
-		return super.pointsDefence() + bonusActifs.get(ConstantesEntite.INDICE_BONUS_DEFENCE);
+		int defence = super.pointsDefence() + bonusActifs.get(ConstantesEntite.INDICE_BONUS_DEFENCE);
+		if (casque != null)
+			defence += casque.defence();
+		if (plastron != null)
+			defence += plastron.defence();
+		if (bottes != null)
+			defence += bottes.defence();
+		if (gants != null)
+			defence += gants.defence();
+		return defence;
 	}
 	
 	/*Equiper*/
 	
 	public void equiperCasque (Casque casque) {
-		this.casque = casque;
+		if (casque == null || getNiveau() <= casque.getNiveauRequis())
+			this.casque = casque;
 	}
 	
 	public void equiperPlastron (Plastron plastron) {
-		this.plastron = plastron;
+		if (plastron == null || getNiveau() <= plastron.getNiveauRequis())
+			this.plastron = plastron;
 	}
 	
 	public void equiperBottes (Bottes bottes) {
-		this.bottes = bottes;
+		if (bottes == null || getNiveau() <= bottes.getNiveauRequis())
+			this.bottes = bottes;
 	}
 	
 	public void equiperGants (Gants gants) {
-		this.gants = gants;
+		if (gants == null || getNiveau() <= gants.getNiveauRequis())
+			this.gants = gants;
 	}
 	
 	public void equiperCollier (Collier collier) {
-		if (this.collier != null)
-			supprimerBonus(this.collier);
-		
-		this.collier = collier;
-		
-		if (collier != null)
-			ajouterBonus(collier);
+		if (collier == null || getNiveau() <= collier.getNiveauRequis()) {
+			if (this.collier != null)
+				supprimerBonus(this.collier);
+			
+			this.collier = collier;
+			
+			if (collier != null)
+				ajouterBonus(collier);
+		}
 	}
 
 	public void equiperBague (Bague bague) {
-		if (this.bague != null)
-			supprimerBonus(this.bague);
-		
-		this.bague = bague;
-		
-		if (bague != null)
-			ajouterBonus(bague);
+		if (bague == null || getNiveau() <= bague.getNiveauRequis()) {
+			if (this.bague != null)
+				supprimerBonus(this.bague);
+			
+			this.bague = bague;
+			
+			if (bague != null)
+				ajouterBonus(bague);
+		}
 	}
 	
 	public void equiperArme (Arme arme) {
-		this.arme = arme;
+		if (arme == null || getNiveau() <= arme.getNiveauRequis())
+			this.arme = arme;
 	}
 }

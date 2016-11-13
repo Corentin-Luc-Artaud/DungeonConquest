@@ -7,6 +7,10 @@ import java.util.List;
 
 import DungeonConquest.entites.dynamiques.Personnage;
 import DungeonConquest.entites.statiques.Bague;
+import DungeonConquest.entites.statiques.Bottes;
+import DungeonConquest.entites.statiques.Casque;
+import DungeonConquest.entites.statiques.Gants;
+import DungeonConquest.entites.statiques.Plastron;
 import DungeonConquest.entites.utilitaire.ConstantesEntite;
 import DungeonConquest.entites.utilitaire.Materiaux;
 import DungeonConquest.entites.utilitaire.Rarete;
@@ -14,32 +18,32 @@ import DungeonConquest.entites.utilitaire.Rarete;
 public class TestPersonnage extends TestCase {
 	
 	public void testBonusForce() {
-		Personnage personnage = new Personnage (12, 14);
+		Personnage personnage = new Personnage ("001", 12, 14);
 		assertEquals(1, personnage.bonusForce());
 	}
 	
 	public void testBonusConstitution() {
-		Personnage personnage = new Personnage (12, 14);
+		Personnage personnage = new Personnage ("001", 12, 14);
 		assertEquals(2, personnage.bonusConstitution());
 	}
 	
 	public void testPointsAttaque() {
-		Personnage personnage = new Personnage (12, 14);
+		Personnage personnage = new Personnage ("001", 12, 14);
 		assertEquals(400, personnage.pointsAttaque());
 	}
 	
 	public void testPointsDefence() {
-		Personnage personnage = new Personnage (12, 14);
+		Personnage personnage = new Personnage ("001", 12, 14);
 		assertEquals(500, personnage.pointsDefence());
 	}
 	
 	public void testCalculPointsDeVie() {
-		Personnage personnage = new Personnage (12, 14);
+		Personnage personnage = new Personnage ("001", 12, 14);
 		assertEquals(700, personnage.getPointsDeVie());
 	}
 	
 	public void testAjouterSupprimerBague() {
-		Personnage personnage = new Personnage (12, 14);
+		Personnage personnage = new Personnage ("001", 12, 14);
 		List<Integer> bonus = new ArrayList<Integer>();
 		for (byte i = 0; i < 4; ++i) {
 			bonus.add(i, 0);
@@ -56,7 +60,7 @@ public class TestPersonnage extends TestCase {
 		bonus.set(ConstantesEntite.INDICE_BONUS_FORCE, 4);
 		bonus.set(ConstantesEntite.INDICE_BONUS_CONSTITUTION, 2);
 		
-		Bague bague = new Bague ("b001", 1, new Materiaux("Or", 4), new Rarete ("Rare", 2), bonus);
+		Bague bague = new Bague ("b1", 1, new Materiaux("OR", 4), new Rarete ("RARE", 2), bonus);
 		personnage.equiperBague(bague);
 		
 		assertEquals(bonus, personnage.getBonusActifs());
@@ -79,5 +83,29 @@ public class TestPersonnage extends TestCase {
 		assertEquals(700, personnage.getPointsDeVieMax());
 		assertEquals(12, personnage.getForce());
 		assertEquals(14, personnage.getConstitution());
+	}
+	
+	public void TestAjouterSupprimerArmure () {
+		Personnage personnage = new Personnage ("001", 12, 14);
+		Casque casque = new Casque ("a1", 1, new Materiaux("DIAMANT", 5), new Rarete("DIVIN", 5));
+		Plastron plastron = new Plastron ("a1", 2, new Materiaux("DIAMANT", 5), new Rarete("DIVIN", 5));
+		Bottes bottes = new Bottes ("a1", 1, new Materiaux("DIAMANT", 5), new Rarete("DIVIN", 5));
+		Gants gants = new Gants ("a1", 1, new Materiaux("DIAMANT", 5), new Rarete("DIVIN", 5));
+		
+		assertEquals(500, personnage.pointsDefence());
+		
+		personnage.equiperCasque(casque);
+		personnage.equiperPlastron(plastron);
+		personnage.equiperBottes(bottes);
+		personnage.equiperGants(gants);
+		
+		assertEquals(1755, personnage.pointsDefence());
+		
+		personnage.equiperCasque(null);
+		personnage.equiperPlastron(null);
+		personnage.equiperBottes(null);
+		personnage.equiperGants(null);
+		
+		assertEquals(500, personnage.pointsDefence());
 	}
 }

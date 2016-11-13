@@ -12,7 +12,8 @@ public abstract class EntiteDynamique extends Entite{
 	private int force;
 	private int constitution;
 	
-	public EntiteDynamique(int force, int constitution) {
+	public EntiteDynamique(String identifient, int force, int constitution) {
+		super(identifient);
 		this.force = force;
 		this.constitution = constitution;
 		niveau = 1;
