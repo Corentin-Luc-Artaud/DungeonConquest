@@ -13,8 +13,11 @@ import DungeonConquest.entites.statiques.objet.equipement.Collier;
 import DungeonConquest.entites.statiques.objet.equipement.Gants;
 import DungeonConquest.entites.statiques.objet.equipement.Plastron;
 import DungeonConquest.entites.utilitaire.ConstantesEntite;
+import DungeonConquest.entites.utilitaire.Coordonnee;
 
 public class Personnage extends EntiteDynamique{
+	
+	private String nomPersonnage;
 	
 	private Armure casque;
 	private Armure plastron;
@@ -34,8 +37,10 @@ public class Personnage extends EntiteDynamique{
 	 */
 	private List<Integer> bonusActifs;
 	
-	public Personnage(String identifient, int niveau, int force, int constitution) {
-		super(identifient, niveau, force, constitution);
+	public Personnage(String identifient, String nomPersonnage, Coordonnee coordonnees, int niveau, int force, int constitution) {
+		super(identifient, coordonnees, niveau, force, constitution);
+		
+		this.nomPersonnage = nomPersonnage;
 		
 		bonusActifs = new ArrayList<Integer> ();
 		for(byte i = 0; i < ConstantesEntite.NOMBRE_BONUS; ++i) {
@@ -78,6 +83,10 @@ public class Personnage extends EntiteDynamique{
 	
 	public Arme getArme() {
 		return arme;
+	}
+	
+	public String getNomPersonnage () {
+		return nomPersonnage;
 	}
 	
 	/*Calculs des statistiques*/

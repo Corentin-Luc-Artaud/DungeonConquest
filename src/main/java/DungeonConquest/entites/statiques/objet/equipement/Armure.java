@@ -11,11 +11,6 @@ public class Armure extends Equipement {
 		super(identifiant, nomObjet, niveauRequis, materiaux, rarete);
 		this.defenceTotale = defenceTotale;
 	}
-	/*
-	public int defence() {
-		int coefficientMatRarete = getMateriaux().getCoefficientMat() * getRarete().getCoefficientRarete();
-		return (10*getNiveauRequis() * (10*coefficientMatRarete + 1));
-	}*/
 	
 	public int defence () {
 		return defenceTotale;

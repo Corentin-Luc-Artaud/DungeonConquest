@@ -1,13 +1,15 @@
 package DungeonConquest.entites.dynamiques;
 
+import DungeonConquest.entites.utilitaire.Coordonnee;
+
 public class Joueur extends Personnage {
 
 	private int experience;
 	
-	public Joueur(String identifient, int niveau, int force, int constitution) {
-		super(identifient, niveau, force, constitution);
+	public Joueur(String identifient, String nomPersonnage, Coordonnee coordonnees, int niveau, int force, int constitution, int experience) {
+		super(identifient, nomPersonnage, coordonnees, niveau, force, constitution);
 		
-		experience = 0;
+		this.experience = experience;
 	}
 	
 	private int experienceRequise () {

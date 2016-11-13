@@ -1,9 +1,12 @@
 package DungeonConquest.entites.dynamiques;
 
 import DungeonConquest.entites.Entite;
+import DungeonConquest.entites.utilitaire.Coordonnee;
 
 public abstract class EntiteDynamique extends Entite{
 
+	private Coordonnee coordonnees;
+	
 	private int pointsDeVie;
 	
 	private int niveau;
@@ -11,8 +14,9 @@ public abstract class EntiteDynamique extends Entite{
 	private int force;
 	private int constitution;
 	
-	public EntiteDynamique(String identifient, int niveau, int force, int constitution) {
+	public EntiteDynamique(String identifient, Coordonnee coordonnees, int niveau, int force, int constitution) {
 		super(identifient);
+		this.coordonnees = coordonnees;
 		this.force = force;
 		this.constitution = constitution;
 		this.niveau = niveau;
@@ -58,6 +62,10 @@ public abstract class EntiteDynamique extends Entite{
 	
 	public int getConstitution () {
 		return constitution;
+	}
+	
+	public Coordonnee getCoordonnees () {
+		return coordonnees;
 	}
 	
 	/*Setteurs*/
