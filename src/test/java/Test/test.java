@@ -15,7 +15,7 @@ import DungeonConquest.MenuPrincipal;
 public class test 
 {
 	private static MenuPrincipal menu;
-    public static void main( String[] args )
+    /*public static void main( String[] args )
     {
         JFrame frame = new JFrame("Dungeon Conquest");
         frame.setMinimumSize(new Dimension(800, 600));
@@ -29,6 +29,6 @@ public class test
         	}
 		});
         frame.pack();
-    }
+    }*/
 }
 
