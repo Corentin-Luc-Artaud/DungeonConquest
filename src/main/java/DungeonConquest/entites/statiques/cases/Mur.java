@@ -9,7 +9,7 @@ public class Mur extends Case{
 	}
 
 	@Override
-	public boolean PeutContenirEntites() {
+	public boolean peutContenirEntites() {
 		return false;
 	}
 

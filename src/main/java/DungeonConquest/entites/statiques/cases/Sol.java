@@ -12,9 +12,13 @@ public class Sol extends Case{
 	private List<Objet> butin;
 	private TypeDeSol typeDeSol;
 	
-	public Sol(String identifient, Coordonnee COORDONNEES) {
+	public Sol(String identifient, Coordonnee COORDONNEES, TypeDeSol typeDeSol) {
 		super(identifient, COORDONNEES);
+		this.typeDeSol = typeDeSol;
 	}
+	
+	
+	/* Getteurs */
 	
 	public EntiteDynamique getEntiteDynamique () {
 		return entiteDynamique;
@@ -28,20 +32,30 @@ public class Sol extends Case{
 		return typeDeSol;
 	}
 	
+	
+	/* Setteurs */
+	
 	public void setEntiteDynamique (EntiteDynamique entiteDynamique) {
 		this.entiteDynamique = entiteDynamique;
 	}
 	
-	public void setButin (List<Objet> butin) {
-		this.butin = butin;
+	//Ajout des objets un par un
+	public void addObjetAuButin (Objet objet) {
+		butin.add(objet);
 	}
 	
 	public void setTypeDeSol (TypeDeSol typeDeSol) {
 		this.typeDeSol = typeDeSol;
 	}
-
+	
 	@Override
-	public boolean PeutContenirEntites() {
+	public boolean peutContenirEntites() {
+		return true;
+	}
+	
+	public boolean caseLibre () {
+		if (entiteDynamique != null)
+			return false;
 		return true;
 	}
 

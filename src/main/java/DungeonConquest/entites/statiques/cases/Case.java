@@ -16,6 +16,6 @@ public abstract class Case extends EntiteStatique {
 		return COORDONNEES;
 	}
 	
-	public abstract boolean PeutContenirEntites ();
+	public abstract boolean peutContenirEntites ();
 
 }
