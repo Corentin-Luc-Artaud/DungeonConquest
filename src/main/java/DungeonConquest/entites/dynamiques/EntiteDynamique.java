@@ -66,6 +66,7 @@ public abstract class EntiteDynamique extends Entite{
 		return 300*niveau + 100*bonusConstitution();
 	}
 	
+	//TESTER
 	public float tauxDeCritique () {
 		return (float)(5 + niveau + bonusDexterite())/100;
 	}
@@ -102,7 +103,7 @@ public abstract class EntiteDynamique extends Entite{
 	
 	/*Setteurs*/
 	
-	protected void setPointsDeVie (int pointsDeVie) {
+	public void setPointsDeVie (int pointsDeVie) {
 		this.pointsDeVie = pointsDeVie;
 	}
 	
