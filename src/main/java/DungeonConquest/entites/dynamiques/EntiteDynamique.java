@@ -103,7 +103,7 @@ public abstract class EntiteDynamique extends Entite{
 	
 	/*Setteurs*/
 	
-	public void setPointsDeVie (int pointsDeVie) {
+	protected void setPointsDeVie (int pointsDeVie) {
 		this.pointsDeVie = pointsDeVie;
 	}
 	

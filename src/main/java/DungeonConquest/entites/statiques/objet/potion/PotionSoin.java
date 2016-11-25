@@ -14,12 +14,7 @@ public class PotionSoin extends Potion {
 	
 	@Override
 	public void appliquerEffet(Personnage personnage) {
-		int nouveauxPointsDeVie = 0;
-		nouveauxPointsDeVie = personnage.getPointsDeVie() + (int)(personnage.pointsDeVieMax()*calculerRatio());
-		if (nouveauxPointsDeVie >= personnage.pointsDeVieMax())
-			personnage.setPointsDeVie(personnage.pointsDeVieMax());
-		else
-			personnage.setPointsDeVie(nouveauxPointsDeVie);
+		personnage.addPointsDeVie((int)(personnage.pointsDeVieMax()*calculerRatio()));
 	}
 
 }

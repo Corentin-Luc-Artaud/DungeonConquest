@@ -88,6 +88,16 @@ public class Personnage extends EntiteDynamique{
 		return nomPersonnage;
 	}
 	
+	/*Setteurs Addeurs*/
+	
+	public void addPointsDeVie (int ajoutPV) {
+		int nouveauxPointsDeVie = getPointsDeVie() + ajoutPV;
+		if (nouveauxPointsDeVie >= pointsDeVieMax())
+			setPointsDeVie(pointsDeVieMax());
+		else
+			setPointsDeVie(nouveauxPointsDeVie);
+	}
+	
 	/*Calculs des statistiques*/
 	
 	@Override
