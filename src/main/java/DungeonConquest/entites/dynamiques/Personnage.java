@@ -29,14 +29,6 @@ public class Personnage extends EntiteDynamique{
 	
 	private Arme arme;
 	
-	/**
-	 *  indice 0 : bonus attaque
-	 *  indice 1 : bonus defence
-	 *  indice 2 : bonus force
-	 *  indice 3 : bonus dexterite
-	 *  indice 4 : bonus constitution
-	 *  indice 5 : bonus intelligence
-	 */
 	private List<Integer> bonusActifs;
 	
 	public Personnage(String identifient, String nomPersonnage, Coordonnee coordonnees, int niveau, int force, int dexterite, int constitution, int intelligence) {
@@ -61,24 +53,25 @@ public class Personnage extends EntiteDynamique{
 	
 	/*Gestion Bonus*/
 	
+	private void mettreAJourBonusStats () {
+		setForce(getForce() + bonusActifs.get(ConstantesEntite.INDICE_BONUS_FORCE));
+		setDexterite(getDexterite() + bonusActifs.get(ConstantesEntite.INDICE_BONUS_DEXTERITE));
+		setConstitution(getConstitution() + bonusActifs.get(ConstantesEntite.INDICE_BONUS_CONSTITUTION));
+		setIntelligence(getIntelligence() + bonusActifs.get(ConstantesEntite.INDICE_BONUS_INTELLIGENCE));
+	}
+	
 	private void supprimerBonus (Accessoire accessoire) {
 		for (int i = 0; i < bonusActifs.size(); ++i) {
 			bonusActifs.set(i, bonusActifs.get(i) - accessoire.getBonus().get(i));
 		}
-		setForce(getForce() - accessoire.getBonus().get(ConstantesEntite.INDICE_BONUS_FORCE));
-		setDexterite(getDexterite() - accessoire.getBonus().get(ConstantesEntite.INDICE_BONUS_DEXTERITE));
-		setConstitution(getConstitution() - accessoire.getBonus().get(ConstantesEntite.INDICE_BONUS_CONSTITUTION));
-		setIntelligence(getIntelligence() - accessoire.getBonus().get(ConstantesEntite.INDICE_BONUS_INTELLIGENCE));
+		mettreAJourBonusStats();
 	}
 	
 	private void ajouterBonus (Accessoire accessoire) {
 		for (int i = 0; i < bonusActifs.size(); ++i) {
 			bonusActifs.set(i, bonusActifs.get(i) + accessoire.getBonus().get(i));
 		}
-		setForce(getForce() + accessoire.getBonus().get(ConstantesEntite.INDICE_BONUS_FORCE));
-		setDexterite(getDexterite() + accessoire.getBonus().get(ConstantesEntite.INDICE_BONUS_DEXTERITE));
-		setConstitution(getConstitution() + accessoire.getBonus().get(ConstantesEntite.INDICE_BONUS_CONSTITUTION));
-		setIntelligence(getIntelligence() + accessoire.getBonus().get(ConstantesEntite.INDICE_BONUS_INTELLIGENCE));
+		mettreAJourBonusStats();
 	}
 	
 	/*Getteur*/
