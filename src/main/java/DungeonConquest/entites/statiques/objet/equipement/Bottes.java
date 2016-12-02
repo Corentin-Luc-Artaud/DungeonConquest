@@ -5,15 +5,15 @@ import DungeonConquest.entites.utilitaire.Rarete;
 
 public class Bottes extends Armure {
 
-	private int coefficientDefence;
+	private int defence;
 	
-	public Bottes(String identifiant, String nomObjet, int niveauRequis, Materiaux materiaux, Rarete rarete, int defenceTotale, int coefficientDefence) {
+	public Bottes(String identifiant, String nomObjet, int niveauRequis, Materiaux materiaux, Rarete rarete, int defenceTotale, int defence) {
 		super(identifiant, nomObjet, niveauRequis, materiaux, rarete, defenceTotale);
-		this.coefficientDefence = coefficientDefence;
+		this.defence = defence;
 	}
 
 	@Override
 	public int defence() {
-		return ((super.defence() * coefficientDefence)/100);
+		return defence;
 	}
 }
