@@ -9,8 +9,9 @@ import javax.swing.JFrame;
 @SuppressWarnings("serial")
 public class DungeonConquestLauncher extends JFrame{
 	private PanelFond menuP = new MenuPrincipal(this);
-	private PanelFond option = new Parametre(this);
-	private PanelFond nouv = new NouvellePartie(this);
+	private Menu option = new Parametre(this);
+	private Menu nouv = new NouvellePartie(this);
+	private Menu charger = new Chargement(this);
 	
 	public DungeonConquestLauncher(){
 		
@@ -41,6 +42,11 @@ public class DungeonConquestLauncher extends JFrame{
 		
 		public void changeToOption(){
 			setContentPane(option);
+			validate();
+		}
+		
+		public void changeToPartie(){
+			setContentPane(charger);
 			validate();
 		}
 }

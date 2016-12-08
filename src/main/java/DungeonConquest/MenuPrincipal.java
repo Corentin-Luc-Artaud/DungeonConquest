@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 
 
 /**
- * @author nalfein
+ * @author Yacine
  *
  */
 @SuppressWarnings("serial")
@@ -64,6 +64,8 @@ public class MenuPrincipal extends PanelFond {
 					frame.changeToOption();
 				} else if (e.getActionCommand()=="Nouvelle Partie"){
 					frame.changeToNouvPartie();
+				} else if (e.getActionCommand()=="Charger Partie"){
+					frame.changeToPartie();
 				}
 				
 			}

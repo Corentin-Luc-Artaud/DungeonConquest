@@ -15,25 +15,19 @@ import javax.swing.JPanel;
 
 /**
  * 
- * @author nalfein
+ * @author Yacine                                       
  * @brief classe correspondant à la fenetre d'options pour gérer les touches
  */
 @SuppressWarnings("serial")
-public class Parametre extends PanelFond{
+public class Parametre extends Menu{
 	private static ImageIcon icon = new ImageIcon("/home/nalfein/Bureau/wallhaven-85538.jpg");
 	private DungeonConquestLauncher frame;
 	public Parametre(DungeonConquestLauncher frame){
-		super(icon );
+		super("Option du Jeu", "Valider", "Annuler", icon);
 		this.frame = frame;
-		JPanel panel = new JPanel();
-		add(panel);
-		panel.setBorder(BorderFactory.createEmptyBorder());
-		panel.setLayout(new BorderLayout());
-		panel.add(setTitre(), BorderLayout.NORTH);
-		panel.add(panelCentre(), BorderLayout.CENTER);
-		panel.add(panelSud(), BorderLayout.SOUTH);
+		initCentre();
 	}
-	private JPanel panelCentre() {
+	protected JPanel centre() {
 		//creation du panel principal correspondant a la partie gauche
 		JPanel panPrinc = new JPanel();
 		panPrinc.setLayout(new GridLayout(1, 2));
@@ -71,13 +65,6 @@ public class Parametre extends PanelFond{
 		panel.add(panVide());
 	}
 	
-	private JPanel panelSud() {
-		JPanel panel = new JPanel();
-		panel.add(creerBouton("Valider"));
-		panel.add(creerBouton("Annuler"));
-		return panel;
-	}
-	
 	
 	private void creerBouton(JPanel panel, String touche) {
 		panel.add(creerBouton(touche));
@@ -93,12 +80,7 @@ public class Parametre extends PanelFond{
 		bouton.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				if(e.getActionCommand()=="Annuler"){
-					frame.changeToMenu();
-				} else if (e.getActionCommand()=="Valider"){
-					System.out.println("on doit valider les parametre");
-				} else System.out.println("tu peut modifier les touches");
-				
+				System.out.println("tu peut modifier les touches");
 			}
 		});
 		return bouton;
@@ -133,14 +115,13 @@ public class Parametre extends PanelFond{
 		panel.add(panBou);
 		return panel;
 	}
-	/**
-	 * Affichage du titre de la page
-	 * @return
-	 */
-	private JPanel setTitre(){
-		JPanel panel = new JPanel();
-		panel.add(new JLabel("Option du Jeu"));
-		return panel;
+	@Override
+	protected void doOnAnnuler() {
+		frame.changeToMenu();
+	}
+	@Override
+	protected void doOnAccept() {
+		System.out.println("on doit valider les parametre");
 	}
 
 }

@@ -17,11 +17,11 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 /**
- * @author nalfein et Nathan
+ * @author Yacine et Nathan
  */
 
 @SuppressWarnings("serial")
-public class NouvellePartie extends PanelFond{ 
+public class NouvellePartie extends Menu{ 
 	private static ImageIcon icon = new ImageIcon("");
 	private DungeonConquestLauncher frame;
 	private JTextField fieldNom = new JTextField(20);
@@ -33,23 +33,12 @@ public class NouvellePartie extends PanelFond{
 	//private static int cha   = 18;
 
 	public NouvellePartie(DungeonConquestLauncher frame) {
-		super(icon);
+		super("Nouveau Personnage", "Jouer", "Retour", icon);
 		this.frame = frame;
-		setLayout(new BorderLayout());
-		add(panelNord(), BorderLayout.NORTH);
-		add(panelCentre(), BorderLayout.CENTER);
-		add(panelSud(), BorderLayout.SOUTH);
+		initCentre();
 	}
-	
-	private JPanel panelNord() {
-		JPanel panel = new JPanel();
-		panel.add(new JLabel("Nouveau Personnage"));
-		return panel;
-	}
-	
-	
-	
-	private JPanel panelCentre() {
+	@Override
+	protected JPanel centre() {
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(2, 2));
 		panel.add(panelCentreNordEst());
@@ -195,26 +184,6 @@ public class NouvellePartie extends PanelFond{
 		});
 		return bouton;
 	}
-	
-	
-
-	private JButton creerBouton(String text) {
-		JButton bouton = new JButton(text);
-		bouton.addActionListener(new ActionListener() {
-			
-			public void actionPerformed(ActionEvent e) {
-				if (e.getActionCommand()=="Retour"){
-					frame.changeToMenu();
-				} else if (e.getActionCommand()=="Jouer"){
-					//Constructeur en Attente donc inutile a l'heure actuel
-					//new Personnage("PJ001", fieldNom.getText(), new Coordonnee(), 1, force, dext, cons, intel, 0);
-				}
-				
-			}
-		});
-		return bouton;
-	}
-
 
 	private Component panelCentreSudEst() {
 		JPanel panel = new JPanel();
@@ -241,11 +210,17 @@ public class NouvellePartie extends PanelFond{
 		return panel;
 	}
 
-	private JPanel panelSud() {
-		JPanel panel = new JPanel();
-		panel.add(creerBouton("Jouer"));
-		panel.add(creerBouton("Retour"));
-		return panel;
+	@Override
+	protected void doOnAnnuler() {
+		frame.changeToMenu();
 	}
+
+	@Override
+	protected void doOnAccept() {
+		//Constructeur en Attente donc inutile a l'heure actuel
+		//new Personnage("PJ001", fieldNom.getText(), new Coordonnee(), 1, force, dext, cons, intel, 0);
+	}
+
+	
 
 }
