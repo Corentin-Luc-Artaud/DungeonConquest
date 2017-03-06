@@ -32,8 +32,8 @@ public class EnJeu extends JPanel {
 		map.setLayout(new GridLayout(nbLine+1, nbColone));
 		for (int i=0; i<=nbLine; ++i){
 			for (int j=0; j<=nbColone; ++j){
-				if((i<blackLine/2) || (i>(blackLine/2)+10))map.add(creerBouton(new ImageIcon("CaseNoire.png")));
-				else if((j<blackColone/2) || (j>(blackColone/2)+16))map.add(creerBouton(new ImageIcon("CaseNoire.png")));
+				if((i<blackLine/2) || (i>(blackLine/2)+10))map.add(creerBouton(new ImageIcon("./assets/Tuille/Donjon/CaseNoire.png")));
+				else if((j<blackColone/2) || (j>(blackColone/2)+16))map.add(creerBouton(new ImageIcon("./assets/Tuille/Donjon/CaseNoire.png")));
 				else map.add(creerBouton(new ImageIcon("CaseRouge.png")));
 			}
 		}
