@@ -3,7 +3,7 @@ package DungeonConquest.entites.dynamiques;
 import DungeonConquest.entites.Entite;
 import DungeonConquest.entites.utilitaire.Coordonnee;
 
-public abstract class EntiteDynamique extends Entite{
+public class EntiteDynamique extends Entite{
 
 	private Coordonnee coordonnees;
 	
@@ -25,6 +25,14 @@ public abstract class EntiteDynamique extends Entite{
 		this.intelligence = intelligence;
 		this.niveau = niveau;
 		pointsDeVie = pointsDeVieMax();
+	}
+	
+	public boolean estEnVie() {
+
+		if (pointsDeVie > 0)
+			return true;
+		
+		return false;
 	}
 	
 	
@@ -126,8 +134,4 @@ public abstract class EntiteDynamique extends Entite{
 	protected void setNiveau(int niveau) {
 		this.niveau = niveau;
 	}
-	
-	/*Fonction Abstraite*/
-	
-	public abstract boolean estEnVie ();
 }

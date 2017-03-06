@@ -42,15 +42,6 @@ public class Personnage extends EntiteDynamique{
 		}
 	}
 	
-	@Override
-	public boolean estEnVie() {
-
-		if (getPointsDeVie() > 0)
-			return true;
-		
-		return false;
-	}
-	
 	/*Gestion Bonus*/
 	
 	private void mettreAJourBonusStats () {
