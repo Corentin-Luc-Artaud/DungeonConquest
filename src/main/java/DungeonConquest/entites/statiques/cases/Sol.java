@@ -4,7 +4,6 @@ import java.util.List;
 
 import DungeonConquest.entites.dynamiques.EntiteDynamique;
 import DungeonConquest.entites.statiques.objet.Objet;
-import DungeonConquest.entites.utilitaire.Coordonnee;
 
 public class Sol extends Case{
 
@@ -12,8 +11,8 @@ public class Sol extends Case{
 	private List<Objet> butin;
 	private TypeDeSol typeDeSol;
 	
-	public Sol(String identifient, Coordonnee COORDONNEES, TypeDeSol typeDeSol) {
-		super(identifient, COORDONNEES);
+	public Sol(String identifient, TypeDeSol typeDeSol) {
+		super(identifient);
 		this.typeDeSol = typeDeSol;
 	}
 	
