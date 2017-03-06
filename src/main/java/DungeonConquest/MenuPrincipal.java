@@ -65,7 +65,7 @@ public class MenuPrincipal extends PanelFond {
 				} else if (e.getActionCommand()=="Nouvelle Partie"){
 					frame.changeToNouvPartie();
 				} else if (e.getActionCommand()=="Charger Partie"){
-					frame.changeToPartie();
+					//frame.changeToPartie();
 				}
 				
 			}

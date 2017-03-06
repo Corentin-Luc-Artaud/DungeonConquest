@@ -39,7 +39,7 @@ public abstract class Menu extends PanelFond {
 		bouton.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				if(e.getActionCommand().equals(accpet)) doOnAccept();
+				if(e.getSource().equals(accpet)) doOnAccept();
 				else doOnAnnuler();
 				
 			}

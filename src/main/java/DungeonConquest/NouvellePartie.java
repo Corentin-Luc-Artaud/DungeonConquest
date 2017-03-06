@@ -217,6 +217,8 @@ public class NouvellePartie extends Menu{
 
 	@Override
 	protected void doOnAccept() {
+		System.out.println("je suis la");
+		frame.changeToEnJeu();
 		//Constructeur en Attente donc inutile a l'heure actuel
 		//new Personnage("PJ001", fieldNom.getText(), new Coordonnee(), 1, force, dext, cons, intel, 0);
 	}
