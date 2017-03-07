@@ -19,7 +19,16 @@ public class EnJeu extends JPanel {
 		refresh(568, 800);
 		add(map, BorderLayout.CENTER);
 		JPanel panel = new JPanel();
-		panel.add(new JButton("test"));
+		panel.setLayout(new BorderLayout());
+		JPanel hub = new JPanel(new GridLayout(0,3));
+		JButton inventaire = new JButton("Inventaire");
+		JButton quickslot = new JButton("QuickSlot");
+		JButton personnage = new JButton("Personnage");
+		hub.add(inventaire);
+		hub.add(quickslot);
+		hub.add(personnage);
+		panel.add(hub,BorderLayout.NORTH);
+		panel.add(new JButton("test"),BorderLayout.SOUTH);
 		add(panel, BorderLayout.SOUTH);
 	}
 	
@@ -34,7 +43,7 @@ public class EnJeu extends JPanel {
 			for (int j=0; j<=nbColone; ++j){
 				if((i<blackLine/2) || (i>(blackLine/2)+18))map.add(creerBouton(new ImageIcon("./assets/Tuille/Donjon/CaseNoire.png")));
 				else if((j<blackColone/2) || (j>(blackColone/2)+24))map.add(creerBouton(new ImageIcon("./assets/Tuille/Donjon/CaseNoire.png")));
-				else map.add(creerBouton(new ImageIcon("CaseRouge.png")));
+				else map.add(creerBouton(new ImageIcon("./assets/Tuille/Donjon/pavé1.png")));
 			}
 		}
 	}
@@ -45,6 +54,7 @@ public class EnJeu extends JPanel {
 				new Dimension(icon.getIconHeight(), icon.getIconWidth()));
 		button.setEnabled(false);
 		button.setDisabledIcon(icon);
+		button.setBorder(null);
 		return button;
 	}
 
