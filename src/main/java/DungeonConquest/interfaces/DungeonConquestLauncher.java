@@ -24,6 +24,8 @@ public class DungeonConquestLauncher extends JFrame{
 	        		menuP.resizeFond(getWidth(), getHeight());
 	        		option.resizeFond(getWidth(), getHeight());
 	        		nouv.resizeFond(getWidth(), getHeight());
+	        		enJeu.refresh(getHeight()-32, getWidth());
+	        		validate();
 	        	}
 			});
 			pack();

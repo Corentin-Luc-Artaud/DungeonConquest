@@ -26,14 +26,14 @@ public class EnJeu extends JPanel {
 	public void refresh(int hauteur, int largeur){
 		map.removeAll();
 		int nbLine = hauteur/32;
-		int blackLine = nbLine -10;
+		int blackLine = nbLine -18;
 		int nbColone = largeur/32;
-		int blackColone = nbColone - 16;
+		int blackColone = nbColone - 24;
 		map.setLayout(new GridLayout(nbLine+1, nbColone));
 		for (int i=0; i<=nbLine; ++i){
 			for (int j=0; j<=nbColone; ++j){
-				if((i<blackLine/2) || (i>(blackLine/2)+10))map.add(creerBouton(new ImageIcon("./assets/Tuille/Donjon/CaseNoire.png")));
-				else if((j<blackColone/2) || (j>(blackColone/2)+16))map.add(creerBouton(new ImageIcon("./assets/Tuille/Donjon/CaseNoire.png")));
+				if((i<blackLine/2) || (i>(blackLine/2)+18))map.add(creerBouton(new ImageIcon("./assets/Tuille/Donjon/CaseNoire.png")));
+				else if((j<blackColone/2) || (j>(blackColone/2)+24))map.add(creerBouton(new ImageIcon("./assets/Tuille/Donjon/CaseNoire.png")));
 				else map.add(creerBouton(new ImageIcon("CaseRouge.png")));
 			}
 		}
