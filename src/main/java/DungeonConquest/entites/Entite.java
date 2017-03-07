@@ -14,4 +14,8 @@ public abstract class Entite {
 	public String getIdentifient () {
 		return identifient;
 	}
+	
+	public ImageIcon getImage() {
+		return image;
+	}
 }
