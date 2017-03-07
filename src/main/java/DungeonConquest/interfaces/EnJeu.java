@@ -36,7 +36,7 @@ public class EnJeu extends JPanel {
 		map.removeAll();
 		int nbLine = hauteur/32;
 		int blackLine = nbLine -18;
-		int nbColone = largeur/32;
+		int nbColone = largeur/32 -1;
 		int blackColone = nbColone - 24;
 		map.setLayout(new GridLayout(nbLine+1, nbColone));
 		for (int i=0; i<=nbLine; ++i){
