@@ -1,5 +1,7 @@
 package DungeonConquest.entites.dynamiques;
 
+import javax.swing.ImageIcon;
+
 import DungeonConquest.entites.Entite;
 import DungeonConquest.entites.utilitaire.Coordonnee;
 
@@ -16,8 +18,8 @@ public class EntiteDynamique extends Entite{
 	private int constitution;
 	private int intelligence;
 	
-	public EntiteDynamique(String identifient, Coordonnee coordonnees, int niveau, int force, int dexterite, int constitution, int intelligence) {
-		super(identifient);
+	public EntiteDynamique(String identifient, ImageIcon image, Coordonnee coordonnees, int niveau, int force, int dexterite, int constitution, int intelligence) {
+		super(identifient, image);
 		this.coordonnees = coordonnees;
 		this.force = force;
 		this.dexterite = dexterite;

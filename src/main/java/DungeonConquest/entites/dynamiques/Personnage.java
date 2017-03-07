@@ -3,6 +3,8 @@ package DungeonConquest.entites.dynamiques;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.ImageIcon;
+
 import DungeonConquest.entites.statiques.objet.equipement.Accessoire;
 import DungeonConquest.entites.statiques.objet.equipement.Arme;
 import DungeonConquest.entites.statiques.objet.equipement.Armure;
@@ -31,8 +33,8 @@ public class Personnage extends EntiteDynamique{
 	
 	private List<Integer> bonusActifs;
 	
-	public Personnage(String identifient, String nomPersonnage, Coordonnee coordonnees, int niveau, int force, int dexterite, int constitution, int intelligence) {
-		super(identifient, coordonnees, niveau, force, dexterite, constitution, intelligence);
+	public Personnage(String identifient, ImageIcon image, String nomPersonnage, Coordonnee coordonnees, int niveau, int force, int dexterite, int constitution, int intelligence) {
+		super(identifient, image, coordonnees, niveau, force, dexterite, constitution, intelligence);
 		
 		this.nomPersonnage = nomPersonnage;
 		

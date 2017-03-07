@@ -1,13 +1,15 @@
 package DungeonConquest.entites.statiques.objet;
 
+import javax.swing.ImageIcon;
+
 import DungeonConquest.entites.statiques.EntiteStatique;
 
 public class Objet extends EntiteStatique {
 	
 	private String nomObjet;
 	
-	public Objet (String identifiant, String nomObjet) {
-		super(identifiant);
+	public Objet (String identifiant, ImageIcon image, String nomObjet) {
+		super(identifiant, image);
 		this.nomObjet = nomObjet;
 	}
 	

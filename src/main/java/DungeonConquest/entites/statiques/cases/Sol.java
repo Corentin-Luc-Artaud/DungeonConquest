@@ -2,6 +2,8 @@ package DungeonConquest.entites.statiques.cases;
 
 import java.util.List;
 
+import javax.swing.ImageIcon;
+
 import DungeonConquest.entites.dynamiques.EntiteDynamique;
 import DungeonConquest.entites.statiques.objet.Objet;
 
@@ -11,8 +13,8 @@ public class Sol extends Case{
 	private List<Objet> butin;
 	private TypeDeSol typeDeSol;
 	
-	public Sol(String identifient, TypeDeSol typeDeSol) {
-		super(identifient);
+	public Sol(String identifient, ImageIcon image, TypeDeSol typeDeSol) {
+		super(identifient, image);
 		this.typeDeSol = typeDeSol;
 	}
 	

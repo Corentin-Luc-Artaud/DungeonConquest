@@ -1,9 +1,11 @@
 package DungeonConquest.entites.statiques.cases;
 
+import javax.swing.ImageIcon;
+
 public class Mur extends Case{
 
-	public Mur(String identifient) {
-		super(identifient);
+	public Mur(String identifient, ImageIcon image) {
+		super(identifient, image);
 	}
 
 	@Override

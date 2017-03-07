@@ -1,5 +1,7 @@
 package DungeonConquest.entites.statiques.objet.equipement;
 
+import javax.swing.ImageIcon;
+
 import DungeonConquest.entites.utilitaire.Materiaux;
 import DungeonConquest.entites.utilitaire.Rarete;
 
@@ -7,8 +9,8 @@ public class Casque extends Armure {
 	
 	private int defence;
 
-	public Casque(String identifiant, String nomObjet, int niveauRequis, Materiaux materiaux, Rarete rarete, int defenceTotale, int defence) {
-		super(identifiant, nomObjet, niveauRequis, materiaux, rarete, defenceTotale);
+	public Casque(String identifiant, ImageIcon image, String nomObjet, int niveauRequis, Materiaux materiaux, Rarete rarete, int defenceTotale, int defence) {
+		super(identifiant, image, nomObjet, niveauRequis, materiaux, rarete, defenceTotale);
 		this.defence = defence;
 	}
 	

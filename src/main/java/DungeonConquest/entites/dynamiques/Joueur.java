@@ -1,13 +1,15 @@
 package DungeonConquest.entites.dynamiques;
 
+import javax.swing.ImageIcon;
+
 import DungeonConquest.entites.utilitaire.Coordonnee;
 
 public class Joueur extends Personnage {
 
 	private int experience;
 	
-	public Joueur(String identifient, String nomPersonnage, Coordonnee coordonnees, int niveau, int force, int dexterite, int constitution, int intelligence, int experience) {
-		super(identifient, nomPersonnage, coordonnees, niveau, force, dexterite, constitution, intelligence);
+	public Joueur(String identifient, ImageIcon image, String nomPersonnage, Coordonnee coordonnees, int niveau, int force, int dexterite, int constitution, int intelligence, int experience) {
+		super(identifient, image, nomPersonnage, coordonnees, niveau, force, dexterite, constitution, intelligence);
 		
 		this.experience = experience;
 	}
