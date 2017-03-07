@@ -1,4 +1,4 @@
-package DungeonConquest;
+package DungeonConquest.interfaces;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;

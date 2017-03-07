@@ -1,7 +1,7 @@
 /**
  * 
  */
-package DungeonConquest;
+package DungeonConquest.interfaces;
 
 import java.awt.Dimension;
 import java.awt.GridLayout;

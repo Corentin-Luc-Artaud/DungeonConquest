@@ -1,4 +1,4 @@
-package DungeonConquest;
+package DungeonConquest.interfaces;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

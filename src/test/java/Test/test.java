@@ -2,7 +2,7 @@ package Test;
 
 import javax.swing.JFrame;
 
-import DungeonConquest.DungeonConquestLauncher;
+import DungeonConquest.interfaces.DungeonConquestLauncher;
 
 /**
  * Hello world!
