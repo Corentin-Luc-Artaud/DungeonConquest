@@ -9,6 +9,7 @@ public abstract class Entite {
 	
 	public Entite (String identifient, ImageIcon image) {
 		this.identifient = identifient;
+		this.image = image;
 	}
 	
 	public String getIdentifient () {
